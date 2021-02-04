@@ -1,0 +1,46 @@
+{
+  "name": "@rmw/srv",
+  "version": "0.0.3",
+  "repository": "https://github.com/rmw-lib/srv",
+  "author": "i@rmw.link",
+  "license": "MulanPSL-2.0",
+  "exports": {
+    ".": "./lib/index.js",
+    "./": "./lib/"
+  },
+  "files": [
+    "/lib"
+  ],
+  "dependencies": {
+    "@rmw/config": "^0.0.21",
+    "@rmw/dir": "^0.0.5",
+    "@rmw/fsrv": "^0.0.12",
+    "@rmw/redis": "^0.0.24",
+    "@rmw/thisfile": "^0.0.2",
+    "async-exit-hook": "^2.0.1",
+    "await-sleep": "^0.0.1",
+    "lodash": "^4.17.20",
+    "msgpackr": "^1.1.1",
+    "nkn-sdk": "^1.2.0",
+    "urlsafe-base64": "^1.0.0"
+  },
+  "devDependencies": {
+    "@rmw/console": "^0.0.14",
+    "@rmw/md-include": "^0.4.5",
+    "chalk": "^4.1.0",
+    "coffeescript": "^2.5.1",
+    "colortape": "^0.1.2",
+    "leveldown": "^5.6.0",
+    "nodemon": "^2.0.7",
+    "pouchdb-adapter-leveldb": "^7.2.2",
+    "rxdb": "^9.12.1",
+    "rxjs": "^6.6.3",
+    "source-map-support": "^0.5.19",
+    "tape": "^5.1.1",
+    "tape-catch": "^1.0.6"
+  },
+  "scripts": {
+    "prepare": "./.git/hooks/pre-commit && rm -rf lib && rsync -av --include='*/' --include='*.js' --include='*.mjs' --exclude=* src/ lib/ && npx coffee --compile --output lib src/"
+  },
+  "type": "module"
+}
